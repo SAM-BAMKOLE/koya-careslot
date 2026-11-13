@@ -383,14 +383,23 @@ Deployment URLs will be added here once the API and frontend are deployed:
 
 Deployment notes:
 
-- API: deploy `apps/api` as a Node service, set `DATABASE_URL` and `API_KEY`, and run `prisma migrate deploy` as a release step.
-- Web: deploy `apps/web` with `CLINIC_API_URL` and `CLINIC_API_KEY` set in the host's server-side environment. Because `/api/clinic/*` is a server-rendered endpoint, the web app needs an SSR-capable host (for example Vercel or Netlify with the appropriate Astro adapter), not static-only hosting.
+- API (Render or similar):
+  - Root directory: repository root (so pnpm can resolve the workspace).
+  - Build command: `pnpm install --frozen-lockfile && pnpm --filter api build`. The build runs `prisma generate`, `tsc` and `tsc-alias`, so the compiled `dist` has working imports.
+  - Start command: `pnpm --filter api start`.
+  - Environment: `DATABASE_URL`, `API_KEY`, `NODE_ENV=production`.
+  - Release step (once per deploy, before the new version serves traffic): `pnpm --filter api db:migrate`.
+- Web (Vercel):
+  - Import the repository, set the project root to `apps/web`, and keep the detected Astro build settings.
+  - Environment (server-side): `CLINIC_API_URL` (the deployed API URL), `CLINIC_API_KEY`, and optionally `CLINIC_API_KEY_HEADER`.
+  - `/api/clinic/*` is rendered on demand through the `@astrojs/vercel` adapter, so the API key stays on the server.
+  - Local note: building the Vercel adapter on Windows requires Developer Mode (or an elevated shell) because it creates symlinks. Deploying from Vercel's Linux builders is unaffected.
 
 ## Project status
 
 - Core booking flow, lookup, cancellation, appointment history, idempotency, pagination and rate limiting are implemented.
 - The automated Vitest/Supertest suite is not yet committed.
-- Deployment URLs and the homepage screenshot are pending.
+- Deployment URLs are pending.
 
 ## Security notes
 
