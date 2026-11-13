@@ -1,0 +1,11 @@
+---
+import MainLayout from "@/layouts/main.astro"
+import CareSlotPortal from "@/components/react/CareSlotPortal"
+---
+
+<MainLayout
+  title="Find Your Booking | CareSlot"
+  description="Retrieve your existing clinic appointment."
+>
+  <CareSlotPortal client:load view="lookup" />
+</MainLayout>

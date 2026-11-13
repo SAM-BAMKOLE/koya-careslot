@@ -1,0 +1,173 @@
+---
+import MainLayout from "@/layouts/main.astro"
+import {
+  RiHeartPulseLine,
+  RiCalendarCheckLine,
+  RiShieldCheckLine,
+  RiArrowRightLine,
+  RiTimeLine,
+  RiStethoscopeLine,
+} from "@remixicon/react"
+---
+
+<MainLayout
+  title="CareSlot | Simple Clinic Appointment Booking"
+  description="Find an available appointment and book your clinic visit with CareSlot."
+>
+  <section class="relative overflow-hidden">
+    <div class="pointer-events-none absolute -right-32 -top-40 size-[550px] rounded-full bg-primary/5 blur-3xl"></div>
+
+    <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-5 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
+      <div>
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border bg-background px-3 py-2 text-xs font-medium">
+          <RiHeartPulseLine className="size-4 text-primary" />
+          Healthcare made simpler
+        </div>
+
+        <h1 class="max-w-xl text-5xl font-bold leading-[1.1] tracking-tight sm:text-6xl">
+          Your health deserves
+          <span class="text-primary">your time.</span>
+        </h1>
+
+        <p class="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
+          Book your clinic appointment without the unnecessary waiting. Find a
+          suitable time, reserve your slot and keep your confirmation close.
+        </p>
+
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a
+            href="/book"
+            class="inline-flex h-12 items-center gap-2 rounded-lg bg-primary px-6 font-semibold text-primary-foreground transition hover:opacity-90"
+          >
+            Book an appointment
+            <RiArrowRightLine size={19} />
+          </a>
+
+          <a
+            href="/lookup"
+            class="inline-flex h-12 items-center rounded-lg border bg-background px-6 font-semibold transition hover:bg-muted"
+          >
+            Find my booking
+          </a>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-6 text-sm text-muted-foreground">
+          <span class="flex items-center gap-2">
+            <RiShieldCheckLine className="size-4 text-primary" />
+            Secure booking
+          </span>
+          <span class="flex items-center gap-2">
+            <RiTimeLine className="size-4 text-primary" />
+            Convenient scheduling
+          </span>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-[2rem] bg-primary/5 blur-2xl"></div>
+
+        <div class="relative rounded-3xl border bg-card p-6 shadow-xl sm:p-8">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm text-muted-foreground">Your next step</p>
+              <h2 class="mt-1 text-2xl font-bold">Book a visit</h2>
+            </div>
+            <div class="grid size-12 place-items-center rounded-2xl bg-primary/10 text-primary">
+              <RiStethoscopeLine size={25} />
+            </div>
+          </div>
+
+          <div class="my-8 space-y-5">
+            <div class="flex items-center gap-4 rounded-xl border p-4">
+              <div class="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
+                <RiCalendarCheckLine size={22} />
+              </div>
+              <div>
+                <p class="font-semibold">Choose a date</p>
+                <p class="mt-1 text-xs text-muted-foreground">
+                  Find an appointment that works for you.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 rounded-xl border p-4">
+              <div class="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
+                <RiTimeLine size={22} />
+              </div>
+              <div>
+                <p class="font-semibold">Select an available time</p>
+                <p class="mt-1 text-xs text-muted-foreground">
+                  Choose from available clinic slots.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 rounded-xl border p-4">
+              <div class="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
+                <RiShieldCheckLine size={22} />
+              </div>
+              <div>
+                <p class="font-semibold">Confirm your booking</p>
+                <p class="mt-1 text-xs text-muted-foreground">
+                  Receive your appointment reference.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="/book"
+            class="flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary font-semibold text-primary-foreground hover:opacity-90"
+          >
+            Get started
+            <RiArrowRightLine size={18} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y bg-muted/30">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:grid-cols-3 lg:px-8">
+      <div>
+        <RiCalendarCheckLine className="mb-4 size-7 text-primary" />
+        <h3 class="font-semibold">Easy scheduling</h3>
+        <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Browse available appointment slots and select your preferred time.
+        </p>
+      </div>
+
+      <div>
+        <RiShieldCheckLine className="mb-4 size-7 text-primary" />
+        <h3 class="font-semibold">Reliable confirmations</h3>
+        <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Keep your booking reference and retrieve your appointment details.
+        </p>
+      </div>
+
+      <div>
+        <RiHeartPulseLine className="mb-4 size-7 text-primary" />
+        <h3 class="font-semibold">Simple management</h3>
+        <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Review your appointments and cancel eligible bookings when necessary.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 py-20 text-center lg:px-8">
+    <h2 class="text-3xl font-bold tracking-tight">
+      Ready to schedule your visit?
+    </h2>
+    <p class="mt-3 text-muted-foreground">
+      Take the next step towards convenient healthcare scheduling.
+    </p>
+    <a
+      href="/book"
+      class="mt-7 inline-flex h-12 items-center gap-2 rounded-lg bg-primary px-6 font-semibold text-primary-foreground"
+    >
+      Book your appointment
+      <RiArrowRightLine size={18} />
+    </a>
+  </section>
+</MainLayout>

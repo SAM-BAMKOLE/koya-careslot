@@ -1,0 +1,15 @@
+---
+import MainLayout from "@/layouts/main.astro"
+import CareSlotPortal from "@/components/react/CareSlotPortal"
+
+const { id } = Astro.params
+
+export const prerender = false
+---
+
+<MainLayout
+  title="Booking Confirmation | CareSlot"
+  description="View your clinic appointment details."
+>
+  <CareSlotPortal client:load view="booking" bookingId={id} />
+</MainLayout>
